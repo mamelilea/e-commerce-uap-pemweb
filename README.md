@@ -85,7 +85,16 @@ cp .env.example .env
 ```bash
 php artisan key:generate
 ```
-6. Jalankan migrasi database:
+6. pastikan di database local kamu sudah buat `database` dengan nama yang sama dengan .env :
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=e_commerce_uap
+DB_USERNAME=root
+DB_PASSWORD=
+```
+7. Jalankan migrasi database:
 ```bash
 php artisan migrate
 ```
@@ -93,20 +102,20 @@ Jika ingin menambahkan data dummy, gunakan:
 ```bash
 php artisan migrate --seed
 ```
-7. Jalankan development server Laravel:
+8. Jalankan development server Laravel:
 ```bash
 php artisan serve
 ```
-8. buka terminal yang lain (terminal ada 2), Pada terminal lain, install semua modul Node.js dan lakukan build:
+9. buka terminal yang lain (terminal ada 2), Pada terminal lain, install semua modul Node.js dan lakukan build:
 ```bash
 npm install
 npm run build
 ```
-9. Kompilasi asset dalam mode pengembangan:
+10. Kompilasi asset dalam mode pengembangan:
 ```bash
 npm run dev
 ```
-10. Buka browser dan akses aplikasi:
+11. Buka browser dan akses aplikasi:
 ```bash
 http://localhost:8000
 ```
