@@ -85,7 +85,7 @@ cp .env.example .env
 ```bash
 php artisan key:generate
 ```
-6. pastikan di database local kamu sudah buat `database` dengan nama yang sama dengan .env :
+6. pastikan xampp menyala, dan di database local kamu sudah buat `database` dengan nama yang sama dengan .env :
 ```bash
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
