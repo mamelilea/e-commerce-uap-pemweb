@@ -18,6 +18,10 @@ class Store extends Model
         'address',
         'postal_code',
         'is_verified',
+        'is_suspended',
+        'bank_name',
+        'bank_account_name',
+        'bank_account_number',
     ];
 
     // relationships one store has one owner (user)
@@ -26,7 +30,7 @@ class Store extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function storeBallance()
+    public function balance()
     {
         return $this->hasOne(StoreBalance::class);
     }

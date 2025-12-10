@@ -15,7 +15,7 @@ class Product extends Model
         'description',
         'condition',
         'price',
-        'weight',
+
         'stock',
     ];
 
@@ -26,6 +26,21 @@ class Product extends Model
     public function store()
     {
         return $this->belongsTo(Store::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function getAverageRatingAttribute()
+    {
+        return $this->reviews()->avg('rating') ?? 0;
+    }
+
+    public function getReviewCountAttribute()
+    {
+        return $this->reviews()->count();
     }
     public function productCategory()
     {
