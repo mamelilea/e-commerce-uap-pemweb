@@ -19,6 +19,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        try {
+            // Share categories with all views for the navbar/mega-menu
+            $categories = \App\Models\ProductCategory::whereNull('parent_id')->with('children')->get();
+            \Illuminate\Support\Facades\View::share('globalCategories', $categories);
+        } catch (\Exception $e) {
+            // Fallback if database is not ready yet
+            \Illuminate\Support\Facades\View::share('globalCategories', collect([]));
+        }
     }
 }

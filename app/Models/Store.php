@@ -10,6 +10,7 @@ class Store extends Model
     protected $fillable = [
         'user_id',
         'name',
+        'slug',
         'logo',
         'about',
         'phone',
@@ -26,7 +27,7 @@ class Store extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function storeBallance()
+    public function storeBalance()
     {
         return $this->hasOne(StoreBalance::class);
     }

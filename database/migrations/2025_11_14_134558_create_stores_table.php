@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id()->primary();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('name');
-            $table->string('logo');
-            $table->text('about');
+            $table->string('slug')->unique();
+            $table->string('logo')->nullable();
+            $table->text('about')->nullable();
             $table->string('phone');
-            $table->string('address_id');
+            $table->string('address_id')->nullable();
             $table->string('city');
             $table->text('address');
             $table->string('postal_code');

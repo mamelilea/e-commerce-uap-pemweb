@@ -19,16 +19,24 @@ class AuthenticatedSessionController extends Controller
         return view('auth.login');
     }
 
-    /**
-     * Handle an incoming authentication request.
-     */
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        // Role-based redirect
+        $user = auth()->user();
+        
+        if ($user->isAdmin()) {
+            return redirect()->intended(route('admin.dashboard'));
+        }
+        
+        if ($user->store) {
+            return redirect()->intended(route('seller.dashboard'));
+        }
+
+        return redirect()->intended(route('home'));
     }
 
     /**
