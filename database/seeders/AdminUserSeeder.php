@@ -11,7 +11,7 @@ class AdminUserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     */
+     */ 
     public function run(): void
     {
         // 1. Set user ID 1 sebagai admin
