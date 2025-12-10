@@ -26,7 +26,7 @@ class Store extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function storeBallance()
+    public function storeBalance()
     {
         return $this->hasOne(StoreBalance::class);
     }
@@ -38,6 +38,8 @@ class Store extends Model
 
     public function transactions()
     {
-        return $this->hasMany(Transaction::class);
+        return $this->hasMany(Transaction::class,'store_id', 'id');
     }
+
+    
 }
