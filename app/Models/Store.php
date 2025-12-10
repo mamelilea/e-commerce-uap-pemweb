@@ -23,7 +23,7 @@ class Store extends Model
     // relationships one store has one owner (user)
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function storeBallance()
@@ -39,5 +39,18 @@ class Store extends Model
     public function transactions()
     {
         return $this->hasMany(Transaction::class);
+    }
+
+    public function withdrawals()
+    {
+        // rekening bank disimpan di sini
+        return $this->hasMany(Withdrawal::class, 'store_balance_id', 'id')
+            ->withDefault();
+    }
+
+    public function balance()
+    {
+        // model StoreBalance harus ada di App\Models\StoreBalance,
+        return $this->hasOne(StoreBalance::class, 'store_id', 'id');
     }
 }

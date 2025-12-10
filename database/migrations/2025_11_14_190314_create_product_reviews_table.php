@@ -12,18 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('product_reviews', function (Blueprint $table) {
-            $table->id()->primary();
-            $table->foreignId('transaction_id')->constrained('transactions')->cascadeOnDelete();
-            $table->foreignId('product_id')->constrained('products')->cascadeOnDelete();
-            $table->integer('rating');
-            $table->text('review');
+            $table->id();
+            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->unsignedTinyInteger('rating'); // 1-5
+            $table->text('comment')->nullable();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('product_reviews');

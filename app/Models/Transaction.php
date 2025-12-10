@@ -20,13 +20,17 @@ class Transaction extends Model
         'tracking_number',
         'tax',
         'grand_total',
+        'status',
         'payment_status',
+        'payment_method',
+        'paid_at',
     ];
 
     protected $casts = [
         'shipping_cost' => 'decimal:2',
         'tax' => 'decimal:2',
         'grand_total' => 'decimal:2',
+        'paid_at' => 'datetime',
     ];
 
     public function buyer()
@@ -45,5 +49,9 @@ class Transaction extends Model
     public function productReviews()
     {
         return $this->hasMany(ProductReview::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'buyer_id');
     }
 }

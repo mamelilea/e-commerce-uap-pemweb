@@ -14,7 +14,7 @@ class StoreBalance extends Model
     ];
 
     protected $casts = [
-        'balanace' => 'decimal:2'
+        'balance' => 'decimal:2'
     ];
 
     // relationships one store balance belongs to one store
@@ -31,5 +31,10 @@ class StoreBalance extends Model
     public function withdrawals()
     {
         return $this->hasMany(Withdrawal::class);
+    }
+
+    public function storeBalance()
+    {
+        return $this->belongsTo(StoreBalance::class, 'store_balance_id', 'id');
     }
 }

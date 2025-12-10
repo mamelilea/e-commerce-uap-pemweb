@@ -58,7 +58,7 @@ class User extends Authenticatable
     {
         return $this->role === 'member';
     }
-    
+
     // Cek apakah user adalah seller (punya store yang verified)
     public function isSeller()
     {
@@ -73,5 +73,10 @@ class User extends Authenticatable
     public function buyer()
     {
         return $this->hasOne(Buyer::class);
+    }
+
+    public function productReviews()
+    {
+        return $this->hasMany(ProductReview::class);
     }
 }

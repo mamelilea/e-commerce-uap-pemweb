@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('logo');
             $table->text('about');
             $table->string('phone');
-            $table->string('address_id');
             $table->string('city');
             $table->text('address');
             $table->string('postal_code');

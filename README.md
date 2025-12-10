@@ -60,6 +60,32 @@ Untuk menjalankan proyek ini, Anda memerlukan:
 -   NPM
 -   Database server (MySQL, MariaDB, PostgreSQL, or SQLite)
 
+
+## Struktur Tabel (Ringkasan)
+Berikut gambaran singkat tabel yang dibuat oleh migrasi bawaan:
+
+- **users**: akun aplikasi dengan kolom utama `name`, `email`, `password`, `role`, serta timestamp email verifikasi.
+- **buyers**: profil pembeli (`user_id`, `address`, `phone`).
+- **stores**: data toko (`user_id`, `name`, `logo`, `about`, `phone`, `city`, `address`, `postal_code`, `is_verified`).
+- **store_balances** & **store_balance_histories**: saldo toko dan riwayat perubahan saldo (termasuk `type`, `amount`, `description`).
+- **withdrawals**: permintaan penarikan saldo (`store_id`, `amount`, `bank_name`, `account_name`, `account_number`, `status`).
+- **product_categories**: kategori produk dengan `name` dan `slug`.
+- **products**: katalog produk (`store_id`, `product_category_id`, `name`, `description`, `price`, `stock`).
+- **product_images**: gambar produk terkait `product_id`.
+- **transactions** & **transaction_details**: transaksi pembelian dan rinciannya (termasuk alamat penerima, ongkir, status, serta `product_id`, `quantity`, `price`).
+- **product_reviews**: ulasan produk oleh pembeli (`transaction_detail_id`, `rating`, `review`).
+- **cache**, **jobs**, dan tabel pendukung lain: tabel bawaan Laravel untuk cache dan antrean.
+
+Detail kolom lengkap dapat dilihat di folder `database/migrations` sebelum menjalankan migrasi.
+
+## Akun Uji Coba (Seeder)
+Jalankan `php artisan migrate --seed` untuk membuat akun berikut:
+
+- **Admin**: `admin@example.com` / `password123`
+- **Member/Penjual**: `member1@example.com` / `password123` (dapat digunakan sebagai pemilik toko sampel)
+- **Member/Pemberli**: `member2@example.com` / `password123` 
+
+
 ## Instalasi
 
 Ikuti langkah-langkah berikut untuk melakukan instalasi dan menjalankan proyek dalam lingkungan pengembangan di komputer lokal Anda:
