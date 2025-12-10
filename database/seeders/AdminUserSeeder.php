@@ -14,17 +14,25 @@ class AdminUserSeeder extends Seeder
      */
     public function run(): void
     {
-        // 1. Set user ID 1 sebagai admin
-        User::where('id', 1)->update([
-            'role' => 'admin'
+        User::create([
+            'name' => 'Super Admin',
+            'email' => 'admin@freshmart.com',
+            'password' => Hash::make('password123'),
+            'role' => 'admin',
         ]);
 
-        // 2. (OPSIONAL) Buat admin baru jika mau
-        // User::create([
-        //     'name' => 'Second Admin',
-        //     'email' => 'admin2@example.com',
-        //     'password' => Hash::make('password123'),
-        //     'role' => 'admin'
-        // ]);
+        User::create([
+            'name' => 'Juragan Sayur',
+            'email' => 'seller@freshmart.com',
+            'password' => Hash::make('password123'),
+            'role' => 'seller',
+        ]);
+
+        User::create([
+            'name' => 'Budi Pembeli',
+            'email' => 'buyer@freshmart.com',
+            'password' => Hash::make('password123'),
+            'role' => 'member', 
+        ]);
     }
 }

@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('transactions', function (Blueprint $table) {
@@ -26,7 +23,7 @@ return new class extends Migration
             $table->string('tracking_number')->nullable();
             $table->decimal('tax', 26, 2);
             $table->decimal('grand_total', 26, 2);
-            $table->enum('payment_status', ['unpaid', 'paid'])->default('unpaid');
+            $table->enum('payment_status', ['unpaid', 'paid', 'done'])->default('unpaid');
             $table->timestamps();
         });
     }

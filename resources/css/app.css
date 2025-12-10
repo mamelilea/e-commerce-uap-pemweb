@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Apply Jakarta Sans as the default font */
+body {
+    font-family: "Jakarta Sans", sans-serif;
+}
+
+/* Apply Poppins for bold text */
+strong,
+b {
+    font-family: "Poppins", sans-serif;
+}
