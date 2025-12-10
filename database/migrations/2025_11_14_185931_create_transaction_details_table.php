@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id()->primary();
             $table->foreignId('transaction_id')->constrained('transactions')->cascadeOnDelete();
             $table->foreignId('product_id')->constrained('products')->cascadeOnDelete();
+            $table->decimal('price', 26, 2); // Price at time of purchase
             $table->integer('qty');
             $table->decimal('subtotal', 26, 2);
             $table->timestamps();

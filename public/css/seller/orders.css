@@ -1,0 +1,356 @@
+:root {
+    --primary-color: #0667d0;
+    --secondary-color: #00c8ff;
+}
+
+/* WRAPPER UTAMA */
+.orders-wrapper {
+    max-width: 1150px;
+    margin: 40px auto 60px;
+    padding: 0 16px;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* HEADER + FILTER */
+.orders-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.page-title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.page-subtitle {
+    color: #666;
+    font-size: 14px;
+}
+
+.orders-filter-form {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.orders-filter-form input,
+.orders-filter-form select {
+    padding: 8px 10px;
+    border-radius: 999px;
+    border: 1px solid #e0e0e0;
+    font-size: 13px;
+    outline: none;
+}
+
+.orders-filter-form button {
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+}
+
+/* ALERT */
+.alert {
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.alert-success {
+    background: #e6f6ee;
+    color: #156f3b;
+}
+
+/* EMPTY STATE */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 16px;
+    background: #f9fafb;
+    border: 1px dashed #d0d7e2;
+}
+
+.empty-state img {
+    max-width: 260px;
+    margin-bottom: 16px;
+}
+
+.empty-state h3 {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.empty-state p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* LIST PESANAN */
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* CARD PESANAN */
+.order-card {
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    padding: 18px 18px 16px;
+    border: 1px solid #edf0f5;
+}
+
+/* HEADER CARD: kode + badge */
+.order-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    border-bottom: 1px solid #eef0f5;
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+}
+
+.order-code {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.order-date {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 2px;
+}
+
+.order-badges {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.badge-status {
+    border: 1px solid transparent;
+}
+
+.badge-paid {
+    background: #ecfdf3;
+    color: #137333;
+    border-color: #bbf7d0;
+}
+
+.badge-unpaid {
+    background: #fff7ed;
+    color: #9a3412;
+    border-color: #fed7aa;
+}
+
+.badge-tracking {
+    background: #e0f2fe;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+}
+
+.badge-no-tracking {
+    background: #f9fafb;
+    color: #6b7280;
+    border: 1px dashed #d1d5db;
+}
+
+/* BODY CARD */
+.order-card-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
+    gap: 18px;
+}
+
+/* INFO (KIRI) */
+.order-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info-block h4 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 2px;
+    color: #111827;
+}
+
+.info-main {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.info-sub {
+    font-size: 13px;
+    color: #4b5563;
+}
+
+/* ITEMS (KANAN) */
+.order-items h4 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.order-items table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.order-items th,
+.order-items td {
+    padding: 6px 4px;
+    text-align: left;
+}
+
+.order-items th {
+    border-bottom: 1px solid #e5e7eb;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.order-items tbody tr:nth-child(odd) {
+    background: #f9fafb;
+}
+
+/* TOTALS */
+.order-totals {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.order-totals > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-totals span {
+    color: #6b7280;
+}
+
+.order-totals strong {
+    font-weight: 700;
+}
+
+.order-totals .grand-total strong {
+    color: var(--primary-color);
+}
+
+/* FOOTER: FORM UPDATE */
+.order-card-footer {
+    border-top: 1px solid #eef0f5;
+    margin-top: 12px;
+    padding-top: 10px;
+}
+
+.order-update-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-inline-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.form-inline-group .field {
+    flex: 1 1 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.form-inline-group label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.form-inline-group input,
+.form-inline-group select {
+    padding: 8px 10px;
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    font-size: 13px;
+    outline: none;
+}
+
+.form-inline-group input:focus,
+.form-inline-group select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(6, 103, 208, 0.15);
+}
+
+/* BUTTON UPDATE */
+.btn-update-order {
+    align-self: flex-end;
+    padding: 9px 18px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 12px rgba(6, 103, 208, 0.3);
+    transition: all 0.2s ease;
+}
+
+.btn-update-order:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(6, 103, 208, 0.4);
+}
+
+/* PAGINATION WRAPPER */
+.orders-pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .orders-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .order-card-body {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .btn-update-order {
+        width: 100%;
+        text-align: center;
+    }
+}

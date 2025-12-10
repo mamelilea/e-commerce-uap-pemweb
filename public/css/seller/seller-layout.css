@@ -1,0 +1,295 @@
+/* Reset & box-sizing */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Variabel warna untuk gradient */
+:root {
+    --primary-color: #0667d0;
+    --secondary-color: #00c8ff;
+}
+
+/* ================= NAVBAR ================= */
+
+.seller-navbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    /* mirip navbar dashboard */
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-bottom: 2px solid var(--primary-color);
+
+    /* lebih panjang / tebal dikit */
+    padding: 22px 60px;
+
+    /* logo kiri, menu kanan */
+    justify-content: space-between;
+
+    /* sticky di atas saat scroll */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(6, 103, 208, 0.1);
+}
+
+/* Logo kiri */
+.nav-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.nav-logo {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: 26px;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* MENU DI KANAN */
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* menu ke kanan */
+    gap: 16px;
+    list-style: none;
+}
+
+.nav-links li {
+    display: flex;
+    justify-content: center;
+}
+
+/* Link style dasar */
+.nav-links a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    padding: 4px 14px;
+    white-space: normal;
+    line-height: 1.2;
+    text-decoration: none;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #000;
+
+    position: relative;
+    overflow: hidden;
+    transition: color 0.2s ease;
+}
+
+/* underline gradasi ala dashboard */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    transform: translateX(-50%);
+    background: linear-gradient(
+        135deg,
+        var(--primary-color) 0%,
+        var(--secondary-color) 100%
+    );
+    transition: width 0.25s ease-in-out;
+}
+
+/* hover: hanya garis yang muncul, text tetap hitam */
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: #000;
+}
+
+/* ACTIVE link */
+.nav-links a.active {
+    font-weight: 600;
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+    background: #222a3c;
+    color: #e8e8e8;
+    padding: 40px 20px 20px;
+    font-family: "Poppins", sans-serif;
+    margin-top: 40px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Brand */
+.footer-logo {
+    width: 140px;
+    margin-bottom: 10px;
+}
+
+.footer-desc {
+    margin: 10px 0 15px;
+    font-size: 14px;
+    color: #cfcfcf;
+    line-height: 1.5;
+}
+
+/* Social icons */
+.footer-social a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icon-img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    transition: 0.3s;
+    filter: invert(30%) sepia(90%) saturate(2000%) hue-rotate(180deg)
+        brightness(100%);
+}
+
+.social-icon-img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+/* Title */
+.footer-col h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* Lists */
+.footer-col ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-col ul li {
+    margin: 6px 0;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: #cdd3dd;
+    transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #fff;
+}
+
+/* Contact text */
+.footer-col p {
+    font-size: 14px;
+    color: #cdd3dd;
+    margin: 6px 0;
+}
+
+.footer-col p a {
+    color: #cdd3dd;
+    text-decoration: none;
+}
+
+.footer-col p a:hover {
+    color: #fff;
+}
+
+/* Newsletter */
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.newsletter-form input {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+}
+
+.newsletter-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #00c8ff;
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.newsletter-form button:hover {
+    background: #00a3d1;
+}
+
+/* Bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 25px;
+    color: #cdd3dd;
+    font-size: 13px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+    .seller-navbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 16px 16px;
+    }
+
+    .nav-left {
+        margin-bottom: 4px;
+    }
+
+    .nav-links {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .footer .foot-inner {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+    }
+}

@@ -1,0 +1,866 @@
+/* =========================================
+   RESET & VARIABLES
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #0667d0;
+    --primary-dark: #0557b0;
+    --secondary: #00d4ff;
+    --dark-bg: #0a0e27;
+    --dark-bg-2: #06091c;
+    --light-bg: #f8f9fa;
+    --text-dark: #111;
+    --text-muted: #6d738b;
+    --text-light: #b0b8d4;
+    --border: #e0e0e0;
+    --radius: 14px;
+}
+
+
+/* =========================================
+   GLOBAL STYLES
+========================================= */
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #fff;
+    color: var(--text-dark);
+    line-height: 1.7;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.main-header {
+    background: #fff;
+    border-bottom: 2px solid var(--primary);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(6, 103, 208, 0.08);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.logo-img {
+    width: auto;
+    height: 40px;
+}
+
+.logo-icon {
+    font-size: 28px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.nav-menu ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: 0.25s;
+}
+
+.nav-menu a:hover {
+    color: var(--primary);
+}
+
+
+/* =========================================
+   PRODUCT DETAIL
+========================================= */
+
+
+/* ======== GLOBAL VARIABLE (sesuaikan dengan template-mu) ======== */
+
+:root {
+    --primary: #4A6CF7;
+    --primary-dark: #3b56c7;
+    --radius: 12px;
+    --text-muted: #666;
+    --bg-light: #f7f8fc;
+    --border-color: #e5e7eb;
+    --success: #17B35B;
+}
+
+
+/* ======== LAYOUT PRODUK ======== */
+
+.product-detail {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+    padding: 60px 0;
+    align-items: start;
+}
+
+
+/* ======== FOTO PRODUK (GALERI BARU) ======== */
+
+.product-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.main-image-container {
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: #fff;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    border: none;
+    box-shadow: none;
+}
+
+
+/* Style untuk Thumbnail List */
+
+.thumbnail-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    /* Hapus padding: 0 0px; jika ada, atau pastikan 0*/
+    padding: 0 0px;
+    /* TAMBAHKAN ATAU UBAH INI: */
+    justify-content: center;
+    /* PENTING: Untuk memusatkan list thumbnail di antara panah */
+}
+
+.thumbnail-list {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    overflow-x: auto;
+    padding: 10px 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    /* JANGAN GUNAKAN justify-content: center; di sini, 
+    karena dapat mengganggu scrolling */
+}
+
+.thumb-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.2s;
+    flex-shrink: 0;
+}
+
+.thumb-img:hover,
+.thumb-img.active {
+    border-color: var(--primary);
+    opacity: 1;
+}
+
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background 0.2s;
+}
+
+
+/* ======== INFORMASI TOKO (NAMA TOKO BARU) ======== */
+
+.store-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.store-badge {
+    /* Placeholder untuk badge verified (seperti ikon ungu) */
+    width: 18px;
+    height: 18px;
+    background: #9066ff;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.store-name {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.store-rating {
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.store-rating .rating-star {
+    margin-right: 5px;
+}
+
+.follow-btn {
+    padding: 6px 16px;
+    background: #fff;
+    color: var(--success);
+    border: 1px solid var(--success);
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: auto;
+    /* Dorong tombol ke kanan */
+}
+
+.follow-btn:hover {
+    background: var(--success);
+    color: #fff;
+}
+
+
+/* ======== INFORMASI PRODUK ======== */
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-title {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.product-category {
+    margin-top: 6px;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.product-description {
+    margin-top: 18px;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.product-price {
+    margin-top: 22px;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+
+/* ======== FOTO PRODUK (GALERI BARU) ======== */
+
+.product-gallery {
+    /* Set product-gallery sebagai grid untuk menampung thumbnail dan main image */
+    display: flex;
+    /* Kolom kiri untuk thumbnail (lebar tetap), kolom kanan untuk gambar utama */
+    flex-direction: column-reverse;
+    gap: 15px;
+}
+
+
+/* Container Gambar Utama */
+
+.main-image-container {
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: #fff;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-image-container img {
+    /* Pastikan gambar menyesuaikan ke dalam container tanpa terdistorsi */
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border: none;
+    box-shadow: none;
+}
+
+
+/* Style untuk Thumbnail List */
+
+.thumbnail-list {
+    /* Thumbnail ditampilkan secara HORIZONTAL (berjajar) */
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    overflow-x: auto;
+    /* Memungkinkan scroll jika terlalu banyak */
+    padding: 10px 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    justify-content: center;
+}
+
+.thumb-img {
+    width: 80px;
+    /* Lebar thumbnail yang konsisten */
+    height: 80px;
+    /* Tinggi thumbnail yang konsisten */
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.2s;
+    flex-shrink: 0;
+    /* Penting agar thumbnail tidak mengecil saat scrolling */
+}
+
+.thumbnail-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    /* Mengurangi padding horizontal dari 35px menjadi 15px */
+    padding: 0 0px;
+}
+
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background 0.2s;
+    /* TAMBAHKAN ATAU MODIFIKASI INI */
+    z-index: 5;
+}
+
+
+/* Posisikan panah kiri lebih masuk ke dalam */
+
+.thumbnail-wrapper .left-arrow {
+    left: 0;
+    /* Mulai dari tepi wrapper */
+}
+
+
+/* Posisikan panah kanan lebih masuk ke dalam */
+
+.thumbnail-wrapper .right-arrow {
+    right: 0;
+    /* Mulai dari tepi wrapper */
+}
+
+.thumb-img:hover,
+.thumb-img.active {
+    border-color: var(--primary);
+    opacity: 1;
+}
+
+
+/* ======== INFORMASI TOKO (NAMA TOKO BARU) ======== */
+
+.store-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.store-badge {
+    /* Placeholder untuk badge verified (seperti ikon ungu) */
+    width: 18px;
+    height: 18px;
+    background: #9066ff;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.store-name {
+    font-size: 19px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.store-rating {
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: var(--text-muted);
+}
+
+.store-rating .rating-star {
+    margin-right: 5px;
+}
+
+.follow-btn {
+    padding: 6px 16px;
+    background: #fff;
+    color: var(--success);
+    border: 1px solid var(--success);
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: auto;
+    /* Dorong tombol ke kanan */
+}
+
+.follow-btn:hover {
+    background: var(--success);
+    color: #fff;
+}
+
+.follow-btn.is-following {
+    background: var(--success);
+    /* Latar belakang hijau */
+    color: #fff;
+    /* Teks putih */
+    border: 1px solid var(--success);
+    /* Border warna yang sama */
+    cursor: default;
+    /* Ubah kursor menjadi default */
+}
+
+.follow-btn.is-following:hover {
+    background: var(--success);
+    /* Tetap hijau saat hover */
+    color: #fff;
+    opacity: 0.9;
+    /* Sedikit efek hover */
+}
+
+.add-to-cart label {
+    font-weight: 600;
+    color: #333;
+}
+
+.add-to-cart button {
+    padding: 8px 14px;
+    border: 1px solid var(--border-color);
+    background: #ffffff;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.add-to-cart button:hover {
+    background: var(--bg-light);
+}
+
+.add-to-cart input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    font-size: 16px;
+    width: 80px;
+    text-align: center;
+}
+
+.add-to-cart .quantity-btn {
+    /* Menghilangkan background putih */
+    background: transparent;
+}
+
+
+/* ======== TOMBOL CART ======== */
+
+.btn-add-cart {
+    margin-top: 25px;
+    padding: 14px 26px;
+    font-size: 16px;
+    background: var(--primary);
+    color: #000000;
+    border: none;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-add-cart:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+
+/* ======== TOMBOL BELI SEKARANG (CHECKOUT) ======== */
+
+.btn-checkout {
+    display: inline-block;
+    background: #4F46E5;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 12px;
+    transition: 0.25s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-checkout:hover {
+    background: #4338CA;
+    transform: translateY(-2px);
+}
+
+
+/* ======== ULASAN PRODUK ======== */
+
+.product-reviews {
+    background: var(--bg-light);
+    padding: 20px;
+    border-radius: var(--radius);
+    margin-top: 40px;
+    border: 1px solid var(--border-color);
+}
+
+.product-reviews h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+#reviews-list div {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    border-radius: var(--radius);
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+#review-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    resize: none;
+}
+
+#add-review-btn {
+    margin-top: 10px;
+    padding: 10px 18px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+#add-review-btn:hover {
+    background: var(--primary-dark);
+}
+
+
+/* ======== RESPONSIVE ======== */
+
+@media (max-width: 900px) {
+    .product-detail {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .product-gallery {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .main-image-container img {
+        grid-column: 1 / 2;
+    }
+    .thumbnail-list {
+        flex-direction: row;
+        grid-column: 1 / 2;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    .thumb-img {
+        width: 60px;
+        height: 60px;
+    }
+    .product-title {
+        font-size: 26px;
+    }
+    .product-price {
+        font-size: 24px;
+    }
+}
+
+
+/* ============ FOOTER SECTION ============ */
+
+.footer {
+    /* UBAH ke warna yang SAMA dengan hero section untuk konsistensi */
+    background: #222A3C;
+    color: #e8e8e8;
+    padding: 40px 20px 20px;
+    margin-top: 40px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+/* Brand section */
+
+.footer-logo {
+    width: 140px;
+    margin-bottom: 10px;
+}
+
+.footer-desc {
+    margin: 10px 0 15px;
+    font-size: 14px;
+    color: #cfcfcf;
+    line-height: 1.5;
+}
+
+
+/* Social Icons */
+
+.footer-social a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icon-img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    transition: 0.3s;
+    filter: invert(30%) sepia(90%) saturate(2000%) hue-rotate(180deg) brightness(100%);
+}
+
+.social-icon-img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+
+/* Title */
+
+.footer-section h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+}
+
+
+/* List */
+
+.footer-col ul {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.footer-section ul li {
+    margin: 6px 0;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: #cdd3dd;
+}
+
+.footer-col ul li a:hover {
+    color: white;
+}
+
+
+/* Contact text */
+
+.footer-section p {
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+
+/* Newsletter */
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.newsletter-form input {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+}
+
+.newsletter-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #00c8ff;
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.newsletter-form button:hover {
+    background: #00a3d1;
+}
+
+
+/* Bottom */
+
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #222;
+    font-size: 14px;
+    color: #bbbbbb;
+}
+
+/* =========================================
+   BREADCRUMB
+========================================= */
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #64748b;
+}
+
+.breadcrumb-item {
+    text-decoration: none;
+    color: #64748b;
+    transition: color 0.2s;
+}
+
+.breadcrumb-item:hover {
+    color: var(--primary);
+}
+
+.breadcrumb-item.active {
+    color: #1e293b;
+    font-weight: 500;
+}
+
+.breadcrumb-separator {
+    margin: 0 8px;
+    color: #cbd5e1;
+    font-size: 12px;
+}
+
+
+
+/* responsive */
+
+@media (max-width: 860px) {
+    .footer-inner {
+        grid-template-columns: 1fr;
+        text-align: left;
+        gap: 16px;
+    }
+    .footer-contact {
+        align-items: flex-start;
+    }
+    .footer-nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 420px) {
+    .footer-desc {
+        font-size: 13px;
+    }
+    .contact-email {
+        font-size: 13px;
+        padding: 7px 10px;
+    }
+}

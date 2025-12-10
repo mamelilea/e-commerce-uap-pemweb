@@ -1,0 +1,125 @@
+/* Reset & box-sizing */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Halaman auth split */
+.auth-page {
+    display: flex;
+    height: 100vh;
+}
+
+/* Kiri form */
+.auth-left {
+    flex: 1;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+/* Kanan biru / gambar */
+.auth-right {
+    flex: 1;
+    background: #0667d0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form container */
+.auth-left form {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Input / Button */
+.auth-left input,
+.auth-left textarea,
+.auth-left button {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    font-size: 15px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+.auth-left button {
+    background: #0667d0;
+    color: white;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.auth-left button:hover {
+    background: #0550a0;
+}
+
+/* Label */
+.auth-left label {
+    font-weight: 600;
+    color: #333;
+}
+
+.auth-footer {
+    display: flex;
+    flex-direction: column; /* susun vertical */
+    align-items: flex-start; /* kiri */
+    gap: 5px; /* jarak antar baris */
+    font-size: 0.75rem;
+    margin-top: 2px;
+}
+
+.register-row {
+    display: flex;
+    gap: 4px; /* jarak antara teks dan link */
+    align-items: center; /* vertikal sejajar */
+}
+
+
+.auth-footer a {
+    color: #3b82f6; /* blue-600 */
+    text-decoration: underline;
+}
+
+.auth-footer a:hover {
+    color: #1e40af; /* hover: darker blue */
+}
+
+.auth-footer {
+    font-size: 0.85rem;
+    text-align: left;
+}
+.auth-footer a {
+    color: #0667d0;
+    text-decoration: underline;
+}
+.auth-footer a:hover {
+    color: #1e40af;
+}
+
+
+/* Responsive: stack */
+@media (max-width: 768px) {
+    .auth-page {
+        flex-direction: column;
+    }
+    .auth-left, .auth-right {
+        flex: unset;
+        width: 100%;
+        height: 50vh;
+    }
+}

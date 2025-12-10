@@ -1,0 +1,258 @@
+/* ============================
+   Global Styling (Techly Style)
+=============================== */
+
+:root {
+    --primary-color: #0667d0;
+    --secondary-color: #00d4ff;
+    --dark-bg: #0a0e27;
+    --light-bg: #f8f9fa;
+    --text-dark: #111;
+    --text-light: #b0b8d4;
+    --border-color: #e0e0e0;
+    --radius: 12px;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #fff;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 25px 20px 60px;
+}
+
+
+/* ============================
+   Checkout Layout
+=============================== */
+
+.checkout-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+@media (max-width: 900px) {
+    .checkout-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ============================
+   Card Style
+=============================== */
+
+.checkout-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 25px;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.05);
+}
+
+.checkout-card h3 {
+    margin-bottom: 18px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+/* ============================
+   Form Style
+=============================== */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.form-group label span {
+    color: red;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 12px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    font-size: 15px;
+}
+
+.form-group textarea {
+    height: 110px;
+    resize: none;
+}
+
+
+/* ============================
+   Metode Pengiriman
+=============================== */
+
+.shipping-option {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    padding: 14px;
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.shipping-option:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.shipping-option input {
+    margin-right: 12px;
+    transform: scale(1.2);
+}
+
+
+/* ============================
+   Metode Pembayaran
+=============================== */
+
+.payment-method {
+    border: 1px solid var(--border-color);
+    padding: 14px;
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.2s ease;
+}
+
+.payment-method:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.payment-method input {
+    transform: scale(1.2);
+}
+
+
+/* ============================
+   Product Summary Card
+=============================== */
+
+.product-summary {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.product-summary img {
+    width: 90px;
+    height: 90px;
+    border-radius: var(--radius);
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+}
+
+.product-info h4 {
+    margin: 0;
+    font-size: 17px;
+}
+
+.price-text {
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+
+/* ============================
+   Total Section
+=============================== */
+
+.total-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.total-line strong {
+    font-size: 17px;
+}
+
+
+/* ============================
+   Buttons
+=============================== */
+
+.btn-pay {
+    width: 100%;
+    padding: 14px;
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 17px;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s ease;
+}
+
+.btn-pay:hover {
+    background: #054fa8;
+}
+
+
+/* ============================
+   Trust + Security Box
+=============================== */
+
+.security-box {
+    background: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 15px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+}
+
+.security-box i {
+    font-size: 20px;
+    color: var(--primary-color);
+}
+
+
+/* ============================
+   Return Policy Link
+=============================== */
+
+.policy-links {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.policy-links a {
+    color: var(--primary-color);
+    font-weight: 500;
+}

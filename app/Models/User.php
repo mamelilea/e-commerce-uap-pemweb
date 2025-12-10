@@ -58,13 +58,14 @@ class User extends Authenticatable
     {
         return $this->role === 'member';
     }
-    
+
     // Cek apakah user adalah seller (punya store yang verified)
     public function isSeller()
     {
-        return $this->store()->exists() && $this->store->is_verified;
+        $store = $this->store; // ini akan lazy-load store kalau belum ada
+        return $store && $store->is_verified;
     }
-    // relationships can hava one store 
+    // relationships can hava one store
     public function store()
     {
         return $this->hasOne(Store::class);
