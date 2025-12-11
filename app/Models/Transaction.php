@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -7,43 +6,27 @@ use Illuminate\Database\Eloquent\Model;
 class Transaction extends Model
 {
     protected $fillable = [
-        'code',
-        'buyer_id',
-        'store_id',
-        'address',
-        'address_id',
-        'city',
-        'postal_code',
-        'shipping',
+        'user_id',
+        'transaction_code',
+        'total_amount',
+        'shipping_address',
         'shipping_type',
         'shipping_cost',
-        'tracking_number',
-        'tax',
-        'grand_total',
-        'payment_status',
+        'status',
     ];
 
     protected $casts = [
+        'total_amount' => 'decimal:2',
         'shipping_cost' => 'decimal:2',
-        'tax' => 'decimal:2',
-        'grand_total' => 'decimal:2',
     ];
 
-    public function buyer()
+    public function user()
     {
-        return $this->belongsTo(Buyer::class);
-    }
-    public function store()
-    {
-        return $this->belongsTo(Store::class);
+        return $this->belongsTo(User::class);
     }
 
     public function transactionDetails()
     {
         return $this->hasMany(TransactionDetail::class);
-    }
-    public function productReviews()
-    {
-        return $this->hasMany(ProductReview::class);
     }
 }

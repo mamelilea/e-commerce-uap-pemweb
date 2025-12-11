@@ -20,6 +20,10 @@ class Store extends Model
         'is_verified',
     ];
 
+    protected $casts = [
+        'is_verified' => 'boolean',
+    ];
+
     // relationships one store has one owner (user)
     public function user()
     {

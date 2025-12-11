@@ -3,28 +3,25 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
 class AdminUserSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        // 1. Set user ID 1 sebagai admin
-        User::where('id', 1)->update([
-            'role' => 'admin'
-        ]);
+        // Jika user id = 1 belum ada, buat admin baru
+        $admin = User::firstOrCreate(
+            ['id' => 1], // paksa ID 1 agar foreign key tidak error
+            [
+                'name' => 'Admin',
+                'email' => 'admin@example.com',
+                'password' => Hash::make('password123'),
+                'role' => 'admin',
+            ]
+        );
 
-        // 2. (OPSIONAL) Buat admin baru jika mau
-        // User::create([
-        //     'name' => 'Second Admin',
-        //     'email' => 'admin2@example.com',
-        //     'password' => Hash::make('password123'),
-        //     'role' => 'admin'
-        // ]);
+        // Jika user id 1 sudah ada, pastikan role jadi admin
+        $admin->update(['role' => 'admin']);
     }
 }
