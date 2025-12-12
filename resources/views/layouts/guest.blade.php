@@ -7,18 +7,14 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans text-gray-900 antialiased">
-        <!-- Background Image with Blur -->
         <div class="fixed inset-0 z-[-1]">
-             <!-- Use a soft pink/girly gradient or image if available, else keep generic or use one of the new assets -->
              <div class="w-full h-full bg-gradient-to-br from-pink-50 to-white"></div>
         </div>
 

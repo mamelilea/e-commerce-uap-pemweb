@@ -60,10 +60,8 @@ class PaymentController extends Controller
 
             $transaction->update(['payment_status' => 'paid']);
 
-            // Add to Store Balance
             $storeBalance = \App\Models\StoreBalance::firstOrCreate(['store_id' => $transaction->store_id]);
             $storeBalance->increment('balance', $transaction->grand_total);
-            // Record History (Optional but good practice)
              \App\Models\StoreBalanceHistory::create([
                 'store_balance_id' => $storeBalance->id,
                 'amount' => $transaction->grand_total,

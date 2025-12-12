@@ -7,9 +7,7 @@
 
     <div class="py-12 bg-hubbub-gray min-h-screen animate-fade-in-up">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Stats Grid -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                <!-- Total Users -->
                 <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 relative overflow-hidden group hover:-translate-y-1">
                      <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity transform group-hover:scale-110 duration-500">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-hubbub-pink" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -20,7 +18,6 @@
                      <div class="text-5xl font-sans font-bold text-hubbub-black group-hover:text-hubbub-pink transition-colors tracking-tight">{{ $usersCount }}</div>
                 </div>
 
-                <!-- Total Stores -->
                 <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 relative overflow-hidden group hover:-translate-y-1">
                      <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity transform group-hover:scale-110 duration-500">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-hubbub-pink" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -31,7 +28,6 @@
                      <div class="text-5xl font-sans font-bold text-hubbub-black group-hover:text-hubbub-pink transition-colors tracking-tight">{{ $storesCount }}</div>
                 </div>
 
-                <!-- Total Transactions -->
                 <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 relative overflow-hidden group hover:-translate-y-1">
                      <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity transform group-hover:scale-110 duration-500">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-hubbub-pink" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -43,7 +39,6 @@
                 </div>
             </div>
 
-            <!-- Quick Actions -->
             <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-sm border border-gray-100">
                 <h3 class="text-xl font-sans font-bold text-hubbub-black mb-8 uppercase tracking-wide border-b border-gray-100 pb-4">Quick Actions</h3>
                 <div class="flex flex-wrap gap-4">

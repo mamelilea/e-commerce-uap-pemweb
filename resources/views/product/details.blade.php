@@ -2,13 +2,11 @@
     <div class="py-12 bg-white animate-fade-in-up">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-start">
-                {{-- Image Section --}}
                 <div class="space-y-6">
                     @if($product->productImages->first())
                         <div class="aspect-[4/5] bg-gray-50 rounded-[40px] w-full overflow-hidden relative group shadow-2xl shadow-gray-100 border border-gray-100">
                                 <img src="{{ asset('storage/' . $product->productImages->first()->image) }}" alt="{{ $product->name }}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
                         </div>
-                        {{-- Thumbnails if more than 1 --}}
                         @if($product->productImages->count() > 1)
                             <div class="flex space-x-4 overflow-x-auto pb-4 scrollbar-hide">
                                 @foreach($product->productImages as $img)
@@ -25,7 +23,6 @@
                     @endif
                 </div>
 
-                {{-- Details Section --}}
                 <div class="flex flex-col h-full pt-4">
                     <div class="mb-8">
                          <div class="flex items-center gap-2 mb-4">

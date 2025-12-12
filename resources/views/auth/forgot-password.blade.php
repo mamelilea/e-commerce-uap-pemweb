@@ -3,13 +3,13 @@
         {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
     </div>
 
-    <!-- Session Status -->
+    
     <x-auth-session-status class="mb-6 font-bold text-hubbub-pink text-xs uppercase tracking-wide text-center" :status="session('status')" />
 
     <form method="POST" action="{{ route('password.email') }}">
         @csrf
 
-        <!-- Email Address -->
+       
         <div>
             <label for="email" class="block font-sans font-bold text-xs uppercase tracking-wide text-gray-400 mb-2 ml-1">{{ __('Email') }}</label>
             <input id="email" class="block mt-1 w-full bg-gray-50 border-gray-100 rounded-2xl p-4 font-sans focus:border-hubbub-pink focus:ring-hubbub-pink focus:bg-white shadow-inner transition-all duration-300" type="email" name="email" :value="old('email')" required autofocus />

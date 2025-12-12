@@ -6,7 +6,7 @@
     <form method="POST" action="{{ route('password.confirm') }}">
         @csrf
 
-        <!-- Password -->
+      
         <div>
             <label for="password" class="block font-sans font-bold text-xs uppercase tracking-wide text-gray-400 mb-2 ml-1">{{ __('Password') }}</label>
 

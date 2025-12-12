@@ -1,10 +1,8 @@
 <footer class="bg-white border-t border-gray-100 mt-auto pt-8 pb-6 relative overflow-hidden">
-    {{-- Blur Effect --}}
     <div class="absolute top-0 right-0 w-64 h-64 bg-pink-50 rounded-full blur-[80px] opacity-40 -mr-20 -mt-20 pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
-            {{-- Brand & Socials --}}
             <div class="md:w-1/3">
                 <h1 class="font-header text-xl font-bold text-hubbub-pink tracking-tight flex items-center gap-2 mb-2">
                     Sillia <span class="text-gray-300 font-normal">Beauty Market</span>
@@ -41,7 +39,6 @@
                 </div>
             </div>
 
-            {{-- Newsletter (Simple) --}}
             <div class="md:w-1/3 flex flex-col items-end">
                 <h3 class="font-sans font-bold text-hubbub-black mb-3 text-[10px] uppercase tracking-widest w-full text-left md:text-right">Newsletter</h3>
                 <form class="flex w-full md:max-w-xs relative">
@@ -51,7 +48,6 @@
             </div>
         </div>
 
-        {{-- Bottom --}}
         <div class="border-t border-gray-100 pt-6 flex justify-between items-center text-[9px] text-gray-400 font-sans uppercase tracking-widest">
             <span>&copy; {{ date('Y') }} Sillia.</span>
             <div class="flex gap-4">

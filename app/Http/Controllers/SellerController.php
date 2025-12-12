@@ -18,7 +18,7 @@ class SellerController extends Controller
             'about' => 'required',
             'city' => 'required',
             'address' => 'required',
-            'logo' => 'nullable|image|max:2048', // Max 2MB
+            'logo' => 'nullable|image|max:2048', 
         ]);
 
         $logoPath = 'stores/default.png';
@@ -86,7 +86,6 @@ class SellerController extends Controller
         return redirect()->back()->with('success', 'Profile Updated');
     }
 
-    // Product Management
     public function products()
     {
         if (!\Illuminate\Support\Facades\Auth::user()->isSeller()) {
@@ -130,8 +129,8 @@ class SellerController extends Controller
             'price' => $request->price,
             'description' => $request->description,
             'stock' => $request->stock,
-            'condition' => 'new', // Default
-            'weight' => 1000, // Default
+            'condition' => 'new', 
+            'weight' => 1000, 
             'is_active' => true,
         ]);
 
@@ -154,7 +153,6 @@ class SellerController extends Controller
         return back()->with('success', 'Product Deleted');
     }
 
-    // Order Management
     public function orders()
     {
         if (!\Illuminate\Support\Facades\Auth::user()->isSeller()) {
@@ -219,12 +217,11 @@ class SellerController extends Controller
             'status' => 'pending',
             'bank_name' => $request->bank_name,
             'bank_account_number' => $request->account_number,
-            'bank_account_name' => null // Optional as per migration
+            'bank_account_name' => null 
         ]);
 
         $balance->decrement('balance', $request->amount);
         
-        // Record History
         \App\Models\StoreBalanceHistory::create([
              'store_balance_id' => $balance->id,
              'amount' => $request->amount,

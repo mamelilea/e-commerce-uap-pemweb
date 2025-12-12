@@ -91,7 +91,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Glowing Set (Light Pink) -->
                 <div class="bg-pink-50 rounded-[40px] p-8 md:p-10 relative overflow-hidden group hover:shadow-xl hover:shadow-pink-100 transition-all duration-300 flex flex-col md:flex-row items-center gap-6">
                     <div class="relative z-10 w-full md:w-1/2">
                         <span class="text-hubbub-pink text-[10px] font-bold uppercase tracking-widest mb-2 block">Fresh & Glowing</span>
@@ -103,14 +102,12 @@
                             Lihat Produk
                         </a>
                     </div>
-                    <!-- Right Image -->
                     <div class="w-full md:w-1/2 h-64 md:h-auto flex items-center justify-center relative">
                          <div class="absolute inset-0 bg-white rounded-full blur-3xl opacity-40 transform scale-75"></div>
                          <img src="{{ asset('img/left-banner-pink.jpg') }}" class="relative z-10 w-full h-full object-contain hover:scale-105 transition-transform duration-500" alt="Glowing Set">
                     </div>
                 </div>
 
-                <!-- Statement Lips (Black) -->
                 <div class="bg-hubbub-black rounded-[40px] p-8 md:p-10 relative overflow-hidden group hover:shadow-xl hover:shadow-gray-400 transition-all duration-300 flex flex-col md:flex-row items-center gap-6">
                      <div class="relative z-10 w-full md:w-1/2">
                         <span class="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2 block">Bold & Stylish</span>
@@ -122,7 +119,6 @@
                             Eksplor Produk
                         </a>
                     </div>
-                    <!-- Right Image -->
                     <div class="w-full md:w-1/2 h-64 md:h-auto flex items-center justify-center relative">
                         <div class="absolute inset-0 bg-hubbub-pink rounded-full blur-3xl opacity-20 transform scale-75"></div>
                         <img src="{{ asset('img/right-banner-model.jpg') }}" class="relative z-10 w-full h-full object-cover rounded-2xl hover:scale-105 transition-transform duration-500" alt="Statement Look">

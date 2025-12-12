@@ -62,7 +62,6 @@ class AdminController extends Controller
 
     public function withdrawals()
     {
-        // Get all pending withdrawals first, then others
         $withdrawals = \App\Models\Withdrawal::with('store')
             ->orderByRaw("FIELD(status, 'pending') DESC")
             ->orderBy('created_at', 'desc')
@@ -91,12 +90,10 @@ class AdminController extends Controller
             return back()->with('error', 'Withdrawal already processed');
         }
 
-        // Refund Balance
         $storeBalance = \App\Models\StoreBalance::where('store_id', $withdrawal->store_id)->first();
         if ($storeBalance) {
             $storeBalance->increment('balance', $withdrawal->amount);
             
-            // Log Refund
             \App\Models\StoreBalanceHistory::create([
                 'store_balance_id' => $storeBalance->id,
                 'amount' => $withdrawal->amount,

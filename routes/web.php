@@ -10,19 +10,15 @@ use App\Http\Controllers\SellerController;
 use App\Http\Controllers\WalletController;
 use Illuminate\Support\Facades\Route;
 
-// Public Routes
 Route::get('/', [FrontController::class, 'index'])->name('home');
 Route::get('/collection', [FrontController::class, 'collection'])->name('collection');
 Route::get('/lookbook', [FrontController::class, 'lookbook'])->name('lookbook');
 Route::get('/about', [FrontController::class, 'about'])->name('about');
 Route::get('/product/{slug}', [FrontController::class, 'details'])->name('product.details');
 
-// Google Authentication
 Route::get('auth/google', [\App\Http\Controllers\Auth\GoogleController::class, 'redirect'])->name('google.login');
 Route::get('auth/google/callback', [\App\Http\Controllers\Auth\GoogleController::class, 'callback'])->name('google.callback');
 
-// Cart (Might require auth or guest, assuming Auth for now to keep it simple, or mixed)
-// Allowing Cart for auth users primarily as per typical flow in this simple app
 Route::middleware('auth')->group(function () {
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
@@ -34,16 +30,13 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/history', [FrontController::class, 'history'])->name('history');
 
-    // Wallet System
     Route::get('/wallet/topup', [WalletController::class, 'topup'])->name('wallet.topup');
     Route::post('/wallet/topup', [WalletController::class, 'processTopup'])->name('wallet.topup.process');
     
-    // Payment Page (Dedicated) - Accessible to User to input VA
     Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
     Route::post('/payment/check', [PaymentController::class, 'check'])->name('payment.check');
     Route::post('/payment/pay', [PaymentController::class, 'pay'])->name('payment.pay');
 
-    // Seller Routes (Gate: seller)
     Route::middleware('can:seller')->prefix('seller')->name('seller.')->group(function () {
         Route::get('/dashboard', [SellerController::class, 'dashboard'])->name('dashboard');
         Route::get('/products', [SellerController::class, 'products'])->name('products');
@@ -63,12 +56,10 @@ Route::middleware('auth')->group(function () {
         Route::post('/withdrawals', [SellerController::class, 'storeWithdrawal'])->name('withdrawals.store');
     });
 
-    // Store Registration (For Members who want to be Sellers)
     Route::get('/store/register', [SellerController::class, 'registerStore'])->name('store.register');
     Route::post('/store/register', [SellerController::class, 'storeStore'])->name('store.store');
 });
 
-// Admin Routes (Gate: admin)
 Route::middleware(['auth', 'can:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/verification', [AdminController::class, 'verification'])->name('verification');
@@ -77,11 +68,9 @@ Route::middleware(['auth', 'can:admin'])->prefix('admin')->name('admin.')->group
     Route::get('/users', [AdminController::class, 'users'])->name('users');
     Route::delete('/users/{id}', [AdminController::class, 'destroyUser'])->name('users.destroy');
 
-    // Store Management
     Route::get('/stores', [AdminController::class, 'stores'])->name('stores');
     Route::delete('/stores/{id}', [AdminController::class, 'destroyStore'])->name('stores.destroy');
 
-    // Withdrawal Management
     Route::get('/withdrawals', [AdminController::class, 'withdrawals'])->name('withdrawals');
     Route::post('/withdrawals/{id}/approve', [AdminController::class, 'approveWithdrawal'])->name('withdrawals.approve');
     Route::post('/withdrawals/{id}/reject', [AdminController::class, 'rejectWithdrawal'])->name('withdrawals.reject');

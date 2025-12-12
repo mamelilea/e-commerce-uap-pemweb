@@ -20,7 +20,6 @@ class Store extends Model
         'is_verified',
     ];
 
-    // relationships one store has one owner (user)
     public function user()
     {
         return $this->belongsTo(User::class);

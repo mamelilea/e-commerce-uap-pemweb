@@ -54,7 +54,6 @@
                         </div>
                      </div>
 
-                    <!-- Price Min -->
                     <div class="md:col-span-2">
                         <label for="min_price" class="block text-[10px] font-bold uppercase tracking-wider text-gray-500 mb-2 ml-1">Min Price</label>
                          <div class="relative group">
@@ -63,7 +62,6 @@
                         </div>
                     </div>
 
-                    <!-- Price Max -->
                     <div class="md:col-span-2">
                          <label for="max_price" class="block text-[10px] font-bold uppercase tracking-wider text-gray-500 mb-2 ml-1">Max Price</label>
                         <div class="relative group">
@@ -72,7 +70,6 @@
                         </div>
                     </div>
                     
-                     <!-- Buttons -->
                     <div class="md:col-span-2 flex gap-2">
                         <button type="submit" class="flex-1 bg-hubbub-pink text-white font-bold uppercase text-[10px] tracking-widest py-3 rounded-2xl hover:bg-pink-600 transition-all shadow-lg shadow-pink-200 transform hover:-translate-y-1 hover:shadow-xl">
                             Filter
