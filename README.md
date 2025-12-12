@@ -1,132 +1,168 @@
-# **Ujian Praktikum Pemrograman Web Aplikasi E-Commerce (Laravel)** 
+<p align="center">
+  <a href="https://github.com/mamelilea/e-commerce-uap-pemweb.git">
+    <h1 align="center">E-Commerce UAP</h1>
+  </a>
+</p>
 
-## **Konteks Proyek**
+Repository ini merupakan proyek Laravel 12 yang sudah dilengkapi dengan Laravel Breeze sebagai starter kit untuk fitur autentikasi, serta struktur database yang telah disediakan. Tugas Anda adalah mengembangkan fitur sesuai instruksi dengan menggunakan repository ini sebagai dasar. Setelah implementasi selesai, silakan ajukan Pull Request berisi hasil pekerjaan tim Anda. Pull Request tersebut nantinya akan diperiksa dan dinilai oleh asisten praktikum.
 
-Kalian diberikan sebuah repositori proyek Laravel 12 yang sudah dilengkapi dengan:
+## Penjelasan tugas
+Anda diminta untuk membuat antarmuka CRUD sederhana untuk aplikasi E-Commerce dengan beberapa halaman berikut:
 
-1. Starter Kit **Laravel Breeze** untuk basic autentikasi.  
-2. Semua file **Migrations** yang diperlukan untuk membuat struktur database e-commerce (tabel users, products, transactions, stores, etc.).
+Halaman Pengguna (Customer Side)
+1. **Homepage:** Berisi daftar produk, termasuk:
+    - Daftar seluruh produk
+    - Daftar produk berdasarkan kategori
+2. **Halaman Detail Produk:** Menampilkan satu produk beserta detailnya, seperti deskripsi, gambar, kategori, dan ulasan.
+3. **Halaman Checkout:** Pengguna mengisi alamat, memilih jenis pengiriman, dan menyelesaikan pembelian.
+4. **Halaman Riwayat Transaksi (Opsional) :** Menampilkan riwayat pembelian dan detail transaksinya.
 
-**Tugas utama Kalian** adalah membangun web aplikasi full-stack E-Commerce yang fungsional (CRUD) berdasarkan skema database yang disediakan, dengan implementasi khusus pada Role Based Access Control (RBAC) dan Flow Pembayaran.
+Halaman Toko (Seller Dashboard):
+1. **Halaman Registrasi Toko:** Penjual membuat profil toko
+2. **Halaman Manajemen Pesanan:** Melihat dan memperbarui pesanan masuk, informasi pengiriman, serta nomor resi.
+3. **Halaman Saldo Toko:** Melihat saldo dan riwayat perubahan saldo.
+4. **Halaman Penarikan Saldo:** Mengajukan penarikan dan melihat riwayat penarikan, termasuk:
+    - Mengelola (mengubah) nama bank, nama pemilik rekening, dan nomor rekening
+5. **Halaman Manajemen Toko:** Untuk penjual mengelola tokonya, termasuk:
+    - Mengelola (ubah/hapus) profil toko
+    - Mengelola (buat/ubah/hapus) produk
+    - Mengelola (buat/ubah/hapus) kategori produk
+    - Mengelola (buat/ubah/hapus) gambar produk
 
-## **Struktur Database**
+Halaman Admin (Owner of e-commerce):
+1. **Halaman Verifikasi Toko:** Memverifikasi atau menolak pengajuan pembuatan toko.
+2. **Halaman Manajemen Pengguna & Toko:** Melihat dan mengelola seluruh pengguna dan toko yang terdaftar.
 
-![alt text](arsitektur-database.png)
+#### Poin Nilai Tambah (Opsional)
+Kelompok dapat memperoleh nilai tambahan apabila mengimplementasikan beberapa hal berikut:
+1. UI rapi dan responsif
+Tampilan antarmuka dibuat konsisten, bersih, dan mendukung berbagai resolusi layar.
+2. Menambahkan fitur opsional non-wajib, seperti:
+   - Wishlist
+   - Search produk
+   - Filter harga
+   - Dashboard grafik (visualisasi data penjualan/produk)
+3. Penerapan clean code & struktur proyek yang baik
+   - Menggunakan service layer
+   - Repository pattern
+   - Resource (API Resource / View Resource)
+   - Struktur file rapi dan mudah di-maintain
 
-## **Persyaratan Teknis & Setup Awal**
+## Struktur Database
+![db structure](https://github.com/WisnuIbnu/E-Commerce-pemweb-uap/blob/main/public/db_structure.png?raw=true)
 
-1. **Framework:** Laravel 12\.  
-2. Jalankan **`composer install`** untuk menginstal seluruh dependensi PHP yang dibutuhkan.  
-3. Salin file **`.env.example`** menjadi **`.env`**, lalu edit pengaturan database sesuai server database Kalian  
-4. Jalankan **`php artisan key:generate`** untuk menghasilkan application key baru  
-5. **Database:** Terapkan semua *file* *migration* yang telah disediakan (**`php artisan migrate`**).  
-6. **Seeder:** Kalian **wajib** membuat *Database Seeder* untuk membuat data awal. Silahkan lakukan langkah ini pada folder `database/seeders` dan buat file seeder sesuai tabel dengan data yang diperlukan, minimal:  
-   * Satu pengguna dengan role: 'admin'.  
-   * Dua pengguna dengan role: 'member'.  
-   * Satu Toko (stores) yang dimiliki oleh salah satu member.  
-   * Lima Kategori Produk (product\_categories).  
-   * Sepuluh Produk (products) yang dijual oleh Toko tersebut.  
-7. Jalankan **`php artisan serve`** untuk menjalankan development server  
-8. Buka terminal lain dan jalankan **`npm install && npm run build`** untuk menginstal package Node yang diperlukan.  
-9. Jalankan **`npm run dev`** untuk meng-compile asset dalam mode development  
-10. Buka browser dan akses [**http://localhost:**](http://localhost:8000)`{PORT}` untuk melihat aplikasi
+## Prasyarat
 
-## **Tantangan Khusus (*Challenge*)**
+Untuk menjalankan proyek ini, Anda memerlukan:
 
-Implementasi Kalian harus mencakup tiga tantangan inti berikut:
+-   PHP >= 8.3
+-   Composer
+-   NPM
+-   Database server (MySQL, MariaDB, PostgreSQL, or SQLite)
 
-### **1\. Role Based Access Control (RBAC)**
+## Instalasi
 
-Batasi akses ke halaman tertentu berdasarkan peran pengguna.
+Ikuti langkah-langkah berikut untuk melakukan instalasi dan menjalankan proyek dalam lingkungan pengembangan di komputer lokal Anda:
 
-| Peran (users.role) | Akses ke Halaman | Aturan Akses |
-| :---- | :---- | :---- |
-| **Admin** | Halaman Admin. | Akses penuh ke menu admin. |
-| **Seller/Penjual** | Dasbor Penjual. | Wajib memiliki role: 'member' **DAN** wajib memiliki entri di tabel stores. |
-| **Member/Customer** | Halaman Pelanggan. | Akses ke halaman pembelian dan riwayat. |
+1. Clone repository versi terbaru dari sumber yang diberikan:
 
-### 
+```bash
+git clone https://github.com/mamelilea/e-commerce-uap-pemweb.git
+```
+2. masuk ke folder tersebut
+```bash
+cd e-commerce-uap-pemweb
+```
+3. Instal dependensi PHP menggunakan Composer:
+```bash
+composer install
+```
+4. Salin file .env.example menjadi .env lalu sesuaikan konfigurasi database:
+```bash
+cp .env.example .env
+```
+5. Generate application key:
+```bash
+php artisan key:generate
+```
+6. pastikan xampp menyala, dan di database local kamu sudah buat `database` dengan nama yang sama dengan .env :
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=e_commerce_uap
+DB_USERNAME=root
+DB_PASSWORD=
+```
+7. Jalankan migrasi database:
+```bash
+php artisan migrate
+```
+Jika ingin menambahkan data dummy, gunakan:
+```bash
+php artisan migrate --seed
+```
+8. Jalankan development server Laravel:
+```bash
+php artisan serve
+```
+9. buka terminal yang lain (terminal ada 2), Pada terminal lain, install semua modul Node.js dan lakukan build:
+```bash
+npm install
+npm run build
+```
+10. Kompilasi asset dalam mode pengembangan:
+```bash
+npm run dev
+```
+11. Buka browser dan akses aplikasi:
+```bash
+http://localhost:8000
+```
 
-### **2\. Implementasi Sistem Keuangan (User Wallet & VA)**
+## Pengumpulan Tugas:
 
-Kalian harus membuat **Tabel Baru** bernama **user\_balances** (untuk *user wallet*/saldo) dan mengimplementasikan dua skema pembayaran:
+1. Fork repository dengan nama e-commerce-kelompok-x
+(ganti x dengan nomor kelompok Anda).
+2. Selesaikan seluruh tugas yang telah ditentukan sesuai instruksi.
+3. Buat Pull Request ke branch main pada repository kami dengan membawa semua perubahan yang telah Anda kerjakan.
 
-| Skema Pembayaran | Flow Penggunaan |
-| :---- | :---- |
-| **Opsi A: Bayar dengan Saldo (*Wallet*)** | Pelanggan dapat *Topup* Saldo terlebih dahulu (melalui VA). Saat *checkout*, saldo user\_balances akan langsung dipotong. |
-| **Opsi B: Bayar Langsung (Transfer VA)** | Saat *checkout* produk, sistem akan membuat kode **Virtual Account (VA) yang unik** yang terkait langsung dengan transaction\_id. |
+## Format Judul Pull Request
+Gunakan format berikut untuk judul PR:
+```bash
+[kelompok-x] Implementasi Fitur E-Commerce
+```
+Contoh:
+```bash
+[kelompok-1] Implementasi Fitur E-Commerce
+```
 
-### 
+## Format Deskripsi Pull Request
+Gunakan template berikut:
+```bash
+## Ringkasan Pengerjaan
+Jelaskan secara singkat apa saja yang telah dikerjakan pada tugas ini.
 
-### **3\. Halaman Pembayaran Terpusat (*Dedicated Payment Page*)**
+## Fitur yang Diimplementasikan
+- [ ] Halaman Homepage
+- [ ] Halaman Produk
+- [ ] Checkout
+- [ ] Riwayat Transaksi (opsional)
+- [ ] Registrasi Toko
+- [ ] Manajemen Pesanan
+- [ ] Saldo Toko
+- [ ] Penarikan Saldo
+- [ ] Manajemen Toko (produk, kategori, gambar)
+- [ ] Verifikasi Toko (Admin)
+- [ ] Manajemen User & Toko (Admin)
 
-Buat satu halaman/fitur untuk memproses konfirmasi pembayaran VA dari Opsi A (*Topup*) dan Opsi B (Pembelian Langsung).
+*(Checklist dihapus atau ditandai sesuai progress kelompok kalian.)*
 
-* **Flow:** Pengguna mengakses halaman Payment \-\> Masukkan Kode VA \-\> Sistem menampilkan detail (jumlah yang harus dibayar) \-\> Pengguna memasukkan nominal transfer (simulasi) \-\> Konfirmasi Pembayaran.  
-* Jika sukses, sistem akan:  
-  * **Untuk Topup:** Menambahkan saldo ke user\_balances.  
-  * **Untuk Pembelian:** Mengubah transactions.payment\_status menjadi paid **dan** menambahkan dana ke store\_balances penjual.
+## Catatan Tambahan
+Tambahkan hal penting seperti:
+- Fitur yang belum selesai
+- Kendala yang ditemui
+- Hal yang perlu direview khusus
+```
 
-## **Fitur yang Harus Diimplementasikan (Berdasarkan Halaman)**
-
-Implementasikan fungsionalitas CRUD untuk setiap peran:
-
-### **I. Halaman Pengguna (Customer Side)**
-
-| Halaman | Fungsionalitas Wajib |
-| :---- | :---- |
-| **Homepage** (/) | Menampilkan daftar **semua produk** yang tersedia. **Filter** berdasarkan product\_categories. |
-| **Halaman Produk** (/product/{slug}) | Menampilkan detail produk, semua product\_images, nama store, product\_reviews, dan tombol **"Beli"**. |
-| **Checkout** (/checkout) | Proses pengisian alamat, pemilihan *shipping* (shipping\_type, kalkulasi shipping\_cost), pemilihan Opsi Pembayaran (Saldo / Transfer VA). Membuat entri di transactions dan transaction\_details. |
-| **Riwayat Transaksi** (/history) | Melihat daftar transactions yang pernah dilakukan. Dapat melihat detail produk yang dibeli (transaction\_details). |
-| **Topup Saldo** (/wallet/topup) | Mengajukan *topup* saldo pribadi. Menghasilkan VA unik. |
-
-### 
-
-### **II. Halaman Toko (Seller Dashboard)**
-
-Halaman ini hanya dapat diakses oleh *Member* yang sudah mendaftar sebagai Toko.
-
-| Halaman | Fungsionalitas Wajib |
-| :---- | :---- |
-| **Pendaftaran Toko** (/store/register) | CRUD untuk membuat profil Toko (mengisi stores.name, logo, about, dll.). |
-| **Manajemen Toko** (/seller/profile) | CRUD untuk mengelola (update/delete) data Toko dan detail rekening bank. |
-| **Manajemen Kategori** (/seller/categories) | **CRUD** untuk product\_categories. |
-| **Manajemen Produk** (/seller/products) | **CRUD** untuk products dan product\_images (termasuk penKalianan is\_thumbnail). |
-| **Manajemen Pesanan** (/seller/orders) | Melihat daftar pesanan masuk (transactions). Mengubah status pesanan dan mengisi tracking\_number. |
-| **Saldo Toko** (/seller/balance) | Melihat saldo saat ini (store\_balances.balance) dan riwayat saldo (store\_balance\_histories). |
-| **Penarikan Dana** (/seller/withdrawals) | Mengajukan Penarikan dana (membuat entri di withdrawals) dan melihat riwayat withdrawals. |
-
-### 
-
-### **III. Halaman Admin (Admin Only)**
-
-Halaman ini hanya dapat diakses oleh pengguna dengan role: 'admin'.
-
-| Halaman | Fungsionalitas Wajib |
-| :---- | :---- |
-| **Verifikasi Toko** (/admin/verification) | Melihat daftar Toko yang belum terverifikasi (is\_verified: false). Fitur untuk **Memverifikasi** atau **Menolak** pendaftaran toko (mengubah stores.is\_verified). |
-| **Manajemen User & Store** (/admin/users) | Melihat dan mengelola daftar semua users dan stores yang terdaftar. |
-
-## **Penilaian**
-
-Persentase nilai dilakukan berdasarkan indikator berikut
-
-* Tampilan 15%  
-* Presentasi Projek 20% (jika nanti memungkinkan)  
-* Penerapan MVC \+ Efisiensi code 15%  
-* Kelengkapan Project sesuai kriteria 50%
-
-Penilaian akan dilakukan berdasarkan commit nya. Semakin banyak dan kompleks yang dilakukan per individu dalam kelompok, bobot nilai yang diberikan akan semakin besar dan berlaku sebaliknya.
-
-## **Informasi Tambahan**
-
-1. Silahkan fork repositori ini, lalu mulai kerjakan di laptop masing masing dan jangan lupa invite partner kelompok ke dalam repositori.  
-2. Berikan penjelasan aplikasi yang kalian buat sebagaimana readme pada repositori ini dan jangan lupa sertakan nama dan NIM anggota kelompok pada file [readme.md](http://readme.md)  
-3. Dipersilahkan membuat improvisasi pada codingan, library, dan sumber apapun yang dibutuhkan selama tidak merubah arsitektur aplikasi yang diberikan pada poin diatas.  
-4. Jika ada yang kurang dipahami dari perintah soal yang diberikan, feel free untuk menghubungi kami.
-
----
-![alt text](<No Problem Running GIF by ProBit Global.gif>)
-
-Semangatt, badai pasti berlalu
+<h3 align="center">tetap semangat dan sukses selalu php lovers💕</h3>
