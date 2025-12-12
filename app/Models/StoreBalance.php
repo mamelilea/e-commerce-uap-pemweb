@@ -17,7 +17,6 @@ class StoreBalance extends Model
         'balanace' => 'decimal:2'
     ];
 
-    // relationships one store balance belongs to one store
     public function store()
     {
         return $this->belongsTo(Store::class);

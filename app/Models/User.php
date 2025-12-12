@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -59,19 +57,17 @@ class User extends Authenticatable
         return $this->role === 'member';
     }
     
-    // Cek apakah user adalah seller (punya store yang verified)
     public function isSeller()
     {
         return $this->store()->exists() && $this->store->is_verified;
     }
-    // relationships can hava one store 
     public function store()
     {
         return $this->hasOne(Store::class);
     }
 
-    public function buyer()
+    public function balance()
     {
-        return $this->hasOne(Buyer::class);
+        return $this->hasOne(UserBalance::class);
     }
 }

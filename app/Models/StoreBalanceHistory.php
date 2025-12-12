@@ -13,7 +13,7 @@ class StoreBalanceHistory extends Model
         'reference_id',
         'reference_type',
         'amount',
-        'remarks',
+        'description',
     ];
 
     public function storeBalance()

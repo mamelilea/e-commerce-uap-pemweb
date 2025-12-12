@@ -22,6 +22,7 @@ return new class extends Migration
             $table->decimal('price', 26, 2);
             $table->integer('weight');
             $table->integer('stock');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
