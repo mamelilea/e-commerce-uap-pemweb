@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class WithDrawal extends Model
+class Withdrawal extends Model
 {
 
     protected $fillable = [
+        'store_id',
         'store_balance_id',
         'amount',
         'bank_account_name',
@@ -19,5 +20,10 @@ class WithDrawal extends Model
     public function storeBalance()
     {
         return $this->belongsTo(StoreBalance::class);
+    }
+
+    public function store()
+    {
+        return $this->belongsTo(Store::class);
     }
 }

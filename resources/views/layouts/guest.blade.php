@@ -8,22 +8,32 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
+        <!-- Background Image with Blur -->
+        <div class="fixed inset-0 z-[-1]">
+             <!-- Use a soft pink/girly gradient or image if available, else keep generic or use one of the new assets -->
+             <div class="w-full h-full bg-gradient-to-br from-pink-50 to-white"></div>
+        </div>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
+        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 p-4">
+            <div class="w-full sm:max-w-[500px] bg-white shadow-2xl rounded-[40px] overflow-hidden relative animate-fade-in-up border border-white/50 backdrop-blur-sm">
+                <!-- Close Button -->
+                <a href="/" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors z-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </a>
+
+                <div class="px-8 py-10">
+                    {{ $slot }}
+                </div>
             </div>
         </div>
     </body>

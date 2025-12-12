@@ -70,8 +70,8 @@ class User extends Authenticatable
         return $this->hasOne(Store::class);
     }
 
-    public function buyer()
+    public function balance()
     {
-        return $this->hasOne(Buyer::class);
+        return $this->hasOne(UserBalance::class);
     }
 }
