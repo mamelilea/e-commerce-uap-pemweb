@@ -2,24 +2,37 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
 
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'admin',
-            'email' => 'admin@example.com',
+        $this->call([
+            AdminUserSeeder::class,
+            SellerUserSeeder::class,
+            MemberUserSeeder::class,
+            ProductSeeder::class,
+            TransactionSeeder::class,
+            WithdrawalSeeder::class,
         ]);
+
+        $this->command->info('');
+        $this->command->info('Database seeded successfully!');
+        $this->command->info('');
+        $this->command->table(
+            ['Role', 'Email', 'Password'],
+            [
+                ['Admin', 'admin@example.com', 'password'],
+                ['Seller (verified)', 'seller1@example.com', 'password'],
+                ['Seller (verified)', 'seller2@example.com', 'password'],
+                ['Seller (verified)', 'seller3@example.com', 'password'],
+                ['Seller (pending)', 'seller4@example.com', 'password'],
+                ['Member (buyer)', 'buyer1@example.com', 'password'],
+                ['Member (buyer)', 'buyer2@example.com', 'password'],
+                ['Member (buyer)', 'buyer3@example.com', 'password'],
+            ]
+        );
     }
 }

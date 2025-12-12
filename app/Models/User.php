@@ -10,14 +10,9 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
+
     protected $fillable = [
         'name',
         'email',
@@ -25,21 +20,13 @@ class User extends Authenticatable
         'role',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */
+
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
+
     protected function casts(): array
     {
         return [
@@ -48,30 +35,58 @@ class User extends Authenticatable
         ];
     }
 
-    // Helper methods
-    public function isAdmin()
+
+    public function isAdmin(): bool
     {
         return $this->role === 'admin';
     }
 
-    public function isMember()
+
+    public function isMember(): bool
     {
         return $this->role === 'member';
     }
-    
-    // Cek apakah user adalah seller (punya store yang verified)
-    public function isSeller()
+
+
+    public function isSeller(): bool
     {
-        return $this->store()->exists() && $this->store->is_verified;
+        if ($this->relationLoaded('store')) {
+            return $this->store !== null && $this->store->is_verified;
+        }
+
+
+        return $this->store()->where('is_verified', true)->exists();
     }
-    // relationships can hava one store 
+
+
+    public function hasVerifiedStore(): bool
+    {
+        return $this->isSeller();
+    }
+
+
+    public function hasStore(): bool
+    {
+        return $this->relationLoaded('store')
+            ? $this->store !== null
+            : $this->store()->exists();
+    }
+
+
     public function store()
     {
         return $this->hasOne(Store::class);
     }
 
+
     public function buyer()
     {
         return $this->hasOne(Buyer::class);
+    }
+
+
+    public function wishlists()
+    {
+        return $this->hasMany(Wishlist::class);
     }
 }

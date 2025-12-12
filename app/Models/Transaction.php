@@ -21,12 +21,16 @@ class Transaction extends Model
         'tax',
         'grand_total',
         'payment_status',
+        'payment_proof',
+        'order_status',
+        'balance_credited_at',
     ];
 
     protected $casts = [
         'shipping_cost' => 'decimal:2',
         'tax' => 'decimal:2',
         'grand_total' => 'decimal:2',
+        'balance_credited_at' => 'datetime',
     ];
 
     public function buyer()
