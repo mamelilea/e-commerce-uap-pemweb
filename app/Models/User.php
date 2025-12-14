@@ -7,10 +7,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Store;
+use App\Models\Buyer;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
     /**
@@ -48,7 +49,6 @@ class User extends Authenticatable
         ];
     }
 
-    // Helper methods
     public function isAdmin()
     {
         return $this->role === 'admin';
@@ -58,13 +58,13 @@ class User extends Authenticatable
     {
         return $this->role === 'member';
     }
-    
-    // Cek apakah user adalah seller (punya store yang verified)
+
+
     public function isSeller()
     {
         return $this->store()->exists() && $this->store->is_verified;
     }
-    // relationships can hava one store 
+
     public function store()
     {
         return $this->hasOne(Store::class);
