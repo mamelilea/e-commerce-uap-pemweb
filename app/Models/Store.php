@@ -10,6 +10,7 @@ class Store extends Model
     protected $fillable = [
         'user_id',
         'name',
+        'slug',
         'logo',
         'about',
         'phone',
@@ -18,6 +19,9 @@ class Store extends Model
         'address',
         'postal_code',
         'is_verified',
+        'bank_name',
+        'bank_account_name',
+        'bank_account_number',
     ];
 
     // relationships one store has one owner (user)
@@ -26,7 +30,7 @@ class Store extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function storeBallance()
+    public function storeBalance()
     {
         return $this->hasOne(StoreBalance::class);
     }

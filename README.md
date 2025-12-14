@@ -1,77 +1,93 @@
 <p align="center">
-  <a href="https://github.com/mamelilea/e-commerce-uap-pemweb.git">
-    <h1 align="center">E-Commerce UAP</h1>
-  </a>
+  <img src="public/logopink.png" alt="KORÉ Logo" width="200"/>
+  <h1 align="center">KORÉ – K-Pop Merchandise E-Commerce</h1>
+  <p align="center"><i>Your K-Pop Essentials</i></p>
 </p>
 
-Repository ini merupakan proyek Laravel 12 yang sudah dilengkapi dengan Laravel Breeze sebagai starter kit untuk fitur autentikasi, serta struktur database yang telah disediakan. Tugas Anda adalah mengembangkan fitur sesuai instruksi dengan menggunakan repository ini sebagai dasar. Setelah implementasi selesai, silakan ajukan Pull Request berisi hasil pekerjaan tim Anda. Pull Request tersebut nantinya akan diperiksa dan dinilai oleh asisten praktikum.
+---
 
-## Penjelasan tugas
-Anda diminta untuk membuat antarmuka CRUD sederhana untuk aplikasi E-Commerce dengan beberapa halaman berikut:
+## Tentang Project
 
-Halaman Pengguna (Customer Side)
-1. **Homepage:** Berisi daftar produk, termasuk:
-    - Daftar seluruh produk
-    - Daftar produk berdasarkan kategori
-2. **Halaman Detail Produk:** Menampilkan satu produk beserta detailnya, seperti deskripsi, gambar, kategori, dan ulasan.
-3. **Halaman Checkout:** Pengguna mengisi alamat, memilih jenis pengiriman, dan menyelesaikan pembelian.
-4. **Halaman Riwayat Transaksi (Opsional) :** Menampilkan riwayat pembelian dan detail transaksinya.
+**KORÉ** adalah website **e-commerce merchandise K-Pop** yang dikembangkan menggunakan **Laravel 12**.  
+Website ini menyediakan berbagai produk kebutuhan dan koleksi penggemar K-Pop, seperti **album, apparel, lightstick, photocard**, serta merchandise pendukung lainnya.
 
-Halaman Toko (Seller Dashboard):
-1. **Halaman Registrasi Toko:** Penjual membuat profil toko
-2. **Halaman Manajemen Pesanan:** Melihat dan memperbarui pesanan masuk, informasi pengiriman, serta nomor resi.
-3. **Halaman Saldo Toko:** Melihat saldo dan riwayat perubahan saldo.
-4. **Halaman Penarikan Saldo:** Mengajukan penarikan dan melihat riwayat penarikan, termasuk:
-    - Mengelola (mengubah) nama bank, nama pemilik rekening, dan nomor rekening
-5. **Halaman Manajemen Toko:** Untuk penjual mengelola tokonya, termasuk:
-    - Mengelola (ubah/hapus) profil toko
-    - Mengelola (buat/ubah/hapus) produk
-    - Mengelola (buat/ubah/hapus) kategori produk
-    - Mengelola (buat/ubah/hapus) gambar produk
+Project ini menerapkan konsep **multi-role user**, yaitu:
+- **Pembeli (Customer)**
+- **Penjual / Toko (Seller)**
+- **Admin**
 
-Halaman Admin (Owner of e-commerce):
-1. **Halaman Verifikasi Toko:** Memverifikasi atau menolak pengajuan pembuatan toko.
-2. **Halaman Manajemen Pengguna & Toko:** Melihat dan mengelola seluruh pengguna dan toko yang terdaftar.
+Seluruh fitur dirancang secara terintegrasi sehingga alur penggunaan website KORÉ berjalan dengan baik, mulai dari pengguna mengakses halaman utama hingga proses transaksi selesai.
 
-#### Poin Nilai Tambah (Opsional)
-Kelompok dapat memperoleh nilai tambahan apabila mengimplementasikan beberapa hal berikut:
-1. UI rapi dan responsif
-Tampilan antarmuka dibuat konsisten, bersih, dan mendukung berbagai resolusi layar.
-2. Menambahkan fitur opsional non-wajib, seperti:
-   - Wishlist
-   - Search produk
-   - Filter harga
-   - Dashboard grafik (visualisasi data penjualan/produk)
-3. Penerapan clean code & struktur proyek yang baik
-   - Menggunakan service layer
-   - Repository pattern
-   - Resource (API Resource / View Resource)
-   - Struktur file rapi dan mudah di-maintain
+---
+
+## Tujuan Pengembangan
+
+Project ini dibuat untuk memenuhi tugas **Ujian Akhir Praktikum Pemrograman Web**, dengan fokus pada:
+- Implementasi CRUD berbasis Laravel
+- Pengelolaan transaksi e-commerce
+- Penerapan autentikasi dan otorisasi user
+- Struktur kode yang rapi dan mudah dikembangkan
+
+---
+
+## Fitur Utama
+
+### Customer Side
+- Homepage (daftar produk & kategori)
+- Detail produk (deskripsi, gambar, kategori, review)
+- Cart & Checkout
+- Riwayat transaksi
+- Wishlist
+- Wallet / saldo pengguna
+
+### Seller Dashboard
+- Registrasi dan pengelolaan toko
+- Manajemen produk (CRUD)
+- Manajemen kategori produk
+- Manajemen gambar produk
+- Manajemen pesanan & pengiriman
+- Saldo toko & histori saldo
+- Penarikan saldo (withdrawal)
+
+### Admin Panel
+- Verifikasi toko
+- Manajemen user
+- Manajemen toko
+
+---
+
+## Teknologi yang Digunakan
+
+- **Laravel 12**
+- **Laravel Breeze** 
+- **PHP 8.3+**
+- **MySQL**
+- **Tailwind CSS**
+- **Node.js & NPM**
+
+---
 
 ## Struktur Database
-![db structure](https://github.com/WisnuIbnu/E-Commerce-pemweb-uap/blob/main/public/db_structure.png?raw=true)
+![db structure](public/dbkore.png)
 
-## Prasyarat
+Sebelum memulai, pastikan komputer Anda telah terinstal:
+- *PHP* (versi 8.3)
+- *Composer*
+- *Node.js* & *NPM*
+- *MySQL* (atau database lain yang didukung Laravel)
 
-Untuk menjalankan proyek ini, Anda memerlukan:
-
--   PHP >= 8.3
--   Composer
--   NPM
--   Database server (MySQL, MariaDB, PostgreSQL, or SQLite)
-
-## Instalasi
-
+ ## Instalasi
+  
 Ikuti langkah-langkah berikut untuk melakukan instalasi dan menjalankan proyek dalam lingkungan pengembangan di komputer lokal Anda:
 
 1. Clone repository versi terbaru dari sumber yang diberikan:
 
 ```bash
-git clone https://github.com/mamelilea/e-commerce-uap-pemweb.git
+git clone https://github.com/amaliamaya1/e-commerce-kelompok-2.git
 ```
 2. masuk ke folder tersebut
 ```bash
-cd e-commerce-uap-pemweb
+cd e-commerce-kelompok-2
 ```
 3. Instal dependensi PHP menggunakan Composer:
 ```bash
@@ -94,15 +110,22 @@ DB_DATABASE=e_commerce_uap
 DB_USERNAME=root
 DB_PASSWORD=
 ```
-7. Jalankan migrasi database:
+7. Jalankan migrasi database & Seeder
 ```bash
 php artisan migrate
 ```
-Jika ingin menambahkan data dummy, gunakan:
+Migrasi + Data Dummy (Disarankan)*
+Untuk mengisi database dengan data awal (contoh produk, user admin, penjual, dll), jalankan perintah berikut. Ini akan menghapus semua data lama dan menggantinya dengan data baru (fresh):
 ```bash
 php artisan migrate --seed
+php artisan migrate:fresh --seed
 ```
-8. Jalankan development server Laravel:
+8. Setup Storage Link
+Buat symlink agar file di storage/app/public dapat diakses dari web:
+```bash
+php artisan storage:link
+```
+9. Jalankan development server Laravel:
 ```bash
 php artisan serve
 ```
@@ -120,49 +143,34 @@ npm run dev
 http://localhost:8000
 ```
 
-## Pengumpulan Tugas:
-
-1. Fork repository dengan nama e-commerce-kelompok-x
-(ganti x dengan nomor kelompok Anda).
-2. Selesaikan seluruh tugas yang telah ditentukan sesuai instruksi.
-3. Buat Pull Request ke branch main pada repository kami dengan membawa semua perubahan yang telah Anda kerjakan.
-
-## Format Judul Pull Request
-Gunakan format berikut untuk judul PR:
-```bash
-[kelompok-x] Implementasi Fitur E-Commerce
-```
-Contoh:
-```bash
-[kelompok-1] Implementasi Fitur E-Commerce
-```
-
-## Format Deskripsi Pull Request
-Gunakan template berikut:
-```bash
-## Ringkasan Pengerjaan
-Jelaskan secara singkat apa saja yang telah dikerjakan pada tugas ini.
-
 ## Fitur yang Diimplementasikan
-- [ ] Halaman Homepage
-- [ ] Halaman Produk
-- [ ] Checkout
-- [ ] Riwayat Transaksi (opsional)
-- [ ] Registrasi Toko
-- [ ] Manajemen Pesanan
-- [ ] Saldo Toko
-- [ ] Penarikan Saldo
-- [ ] Manajemen Toko (produk, kategori, gambar)
-- [ ] Verifikasi Toko (Admin)
-- [ ] Manajemen User & Toko (Admin)
+- [✅] Halaman Homepage
+- [✅] Halaman Produk
+- [✅] Checkout
+- [✅] Riwayat Transaksi (opsional)
+- [✅] Registrasi Toko
+- [✅] Manajemen Pesanan
+- [✅] Saldo Toko
+- [✅] Penarikan Saldo
+- [✅] Manajemen Toko (produk, kategori, gambar)
+- [✅] Verifikasi Toko (Admin)
+- [✅] Manajemen User & Toko (Admin)
 
-*(Checklist dihapus atau ditandai sesuai progress kelompok kalian.)*
+## Akun Default (Seeder)
 
-## Catatan Tambahan
-Tambahkan hal penting seperti:
-- Fitur yang belum selesai
-- Kendala yang ditemui
-- Hal yang perlu direview khusus
-```
+Jika Anda menjalankan php artisan migrate:fresh --seed, berikut adalah akun default yang dapat digunakan:
 
-<h3 align="center">tetap semangat dan sukses selalu php lovers💕</h3>
+| Role       | Email                | Password    |
+| ---------- | -------------------- | ----------- |
+| *Admin*  | adminkore@gmail.com  | password    |
+| *Seller* | sellermerch@kore.com | password    |
+| *Member* | member2@kore.com     | password    |
+
+
+<h3 align="center">
+감사합니다 (Gamsahamnida) 🌸  
+Terima kasih atas ilmu dan bimbingannya  
+selama UAP Pemrograman Web.  
+Project KORÉ ini kami buat dengan semangat K-Pop.  
+Tetap semangat dan sukses selalu, PHP lovers 💕
+</h3>

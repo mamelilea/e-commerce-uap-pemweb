@@ -8,6 +8,7 @@ class Transaction extends Model
 {
     protected $fillable = [
         'code',
+        'user_id',
         'buyer_id',
         'store_id',
         'address',
@@ -18,9 +19,12 @@ class Transaction extends Model
         'shipping_type',
         'shipping_cost',
         'tracking_number',
+        'shipping_info',
         'tax',
         'grand_total',
+        'payment_method',
         'payment_status',
+        'va_number',
     ];
 
     protected $casts = [
@@ -29,10 +33,16 @@ class Transaction extends Model
         'grand_total' => 'decimal:2',
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    
     public function buyer()
     {
         return $this->belongsTo(Buyer::class);
     }
+
     public function store()
     {
         return $this->belongsTo(Store::class);

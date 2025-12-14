@@ -12,7 +12,7 @@ class Product extends Model
         'product_category_id',
         'name',
         'slug',
-        'description',
+        'about',
         'condition',
         'price',
         'weight',
@@ -44,5 +44,24 @@ class Product extends Model
     public function productReviews()
     {
         return $this->hasMany(ProductReview::class);
+    }
+
+    /**
+     * Get the thumbnail image URL for this product
+     * Returns the thumbnail image if exists, otherwise the first image, or null
+     */
+    public function getThumbnailUrl()
+    {
+        $thumbnail = $this->productImages()->where('is_thumbnail', true)->first();
+        if ($thumbnail) {
+            return asset('storage/' . $thumbnail->image);
+        }
+        
+        $firstImage = $this->productImages()->first();
+        if ($firstImage) {
+            return asset('storage/' . $firstImage->image);
+        }
+        
+        return null;
     }
 }

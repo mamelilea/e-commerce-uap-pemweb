@@ -14,19 +14,16 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id()->primary();
             $table->string('code')->unique();
-            $table->foreignId('buyer_id')->constrained('buyers')->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('store_id')->constrained('stores')->cascadeOnDelete();
-            $table->text('address');
-            $table->string('address_id');
-            $table->string('city');
-            $table->string('postal_code');
-            $table->string('shipping');
-            $table->string('shipping_type');
-            $table->decimal('shipping_cost', 26, 2);
+            $table->text('address')->nullable();
+            $table->string('shipping_type')->nullable();
+            $table->decimal('shipping_cost', 12, 2)->default(0);
             $table->string('tracking_number')->nullable();
-            $table->decimal('tax', 26, 2);
-            $table->decimal('grand_total', 26, 2);
-            $table->enum('payment_status', ['unpaid', 'paid'])->default('unpaid');
+            $table->decimal('total_amount', 12, 2);
+            $table->enum('payment_method', ['wallet', 'va']);
+            $table->enum('payment_status', ['unpaid', 'paid', 'cancelled'])->default('unpaid');
+            $table->string('va_number')->nullable();
             $table->timestamps();
         });
     }
